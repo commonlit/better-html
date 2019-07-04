@@ -18,7 +18,7 @@ module BetterHtml
       private
 
       def append(text)
-        @parser.append_placeholder(text)
+        @parser.append_placeholder(text.encode(Encoding::UTF_8))
       end
 
       def add_text(text)
