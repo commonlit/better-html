@@ -8,7 +8,7 @@ module BetterHtml
 
       def initialize(buffer)
         @parser = HtmlTokenizer::Parser.new
-        super(buffer.encode(Encoding::UTF_8))
+        super(buffer)
       end
 
       def current_position

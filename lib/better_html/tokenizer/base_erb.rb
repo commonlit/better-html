@@ -18,7 +18,7 @@ module BetterHtml
         @buffer = buffer
         @tokens = []
         @current_position = 0
-        super(buffer.source, regexp: REGEXP_WITHOUT_TRIM, trim: false)
+        super(buffer.source.encode(Encoding::UTF_8), regexp: REGEXP_WITHOUT_TRIM, trim: false)
       end
 
       private
