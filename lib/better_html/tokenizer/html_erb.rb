@@ -8,7 +8,7 @@ module BetterHtml
 
       def initialize(buffer)
         @parser = HtmlTokenizer::Parser.new
-        super(buffer)
+        super(buffer.encode(Encoding::UTF_8))
       end
 
       def current_position
@@ -22,7 +22,7 @@ module BetterHtml
       end
 
       def add_text(text)
-        @parser.parse(text) do |type, begin_pos, end_pos, _line, _column|
+        @parser.parse(text.encode(Encoding::UTF_8)) do |type, begin_pos, end_pos, _line, _column|
           add_token(type, begin_pos, end_pos)
         end
       end
